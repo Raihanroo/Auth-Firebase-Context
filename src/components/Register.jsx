@@ -1,10 +1,11 @@
-
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
 
 const Register = () => {
+  const { user, createUser } = useContext(AuthContext);
 
+<<<<<<< HEAD
   const {user, createUser} = useContext(AuthContext)
  
 
@@ -16,8 +17,29 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password);
+=======
+  const handleRegister = (event) => {
+    event.preventDefault(); //typo mistake
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
+    createUser(email, password)
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+     })
+     .catch(error => {
+      console.log(error);
+     })
+>>>>>>> 11751dc87089a848288f7d08d29d89c83f365fe5
 
+    
+    
+  };
+
+<<<<<<< HEAD
         createUser(email, password)
         .then(result => {
           const loggedUser = result.user;
@@ -28,6 +50,8 @@ const Register = () => {
           console.log(error);
          })
     }
+=======
+>>>>>>> 11751dc87089a848288f7d08d29d89c83f365fe5
 
 
 
@@ -63,7 +87,7 @@ const Register = () => {
                 required
               />
             </div>
-            
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
@@ -82,7 +106,11 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
+<<<<<<< HEAD
               <button  className="btn btn-primary">Register</button>
+=======
+              <button className="btn btn-primary">Login</button>
+>>>>>>> 11751dc87089a848288f7d08d29d89c83f365fe5
             </div>
           </form>
         </div>

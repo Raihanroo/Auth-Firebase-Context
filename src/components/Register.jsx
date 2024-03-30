@@ -7,10 +7,10 @@ const Register = () => {
 
   const {user, createUser} = useContext(AuthContext)
  
-  
+
 
     const handleRegister = event =>{
-        event.preventDefult();
+        event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
@@ -19,13 +19,14 @@ const Register = () => {
 
 
         createUser(email, password)
-        // .then(result => {
-        //   const loggedUser = result.user;
-        //   console.log(loggedUser);
-        //  })
-        //  .catch(error => {
-        //   console.log(error);
-        //  })
+        .then(result => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          form.reset();
+         })
+         .catch(error => {
+          console.log(error);
+         })
     }
 
 
@@ -37,7 +38,7 @@ const Register = () => {
           <h1 className="text-5xl font-bold">Please Register!!!</h1>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleRegister} className="card-body">
+          <form onSubmit={(e) => {handleRegister(e)}} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -81,7 +82,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button  className="btn btn-primary">Login</button>
+              <button  className="btn btn-primary">Register</button>
             </div>
           </form>
         </div>

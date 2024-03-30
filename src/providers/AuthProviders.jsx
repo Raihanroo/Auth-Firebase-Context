@@ -12,8 +12,8 @@ const AuthProviders = ({children}) => {
     const [user, setUser] = useState(null);
 
     const createUser = (email, password) =>{
-        // return createUserWithEmailAndPassword(auth, email, password);
-        console.log('working');
+        return createUserWithEmailAndPassword(auth, email, password);
+        
     }
 
     const authInfo = {
